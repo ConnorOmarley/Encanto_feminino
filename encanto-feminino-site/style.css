@@ -862,7 +862,7 @@ section {
 
 /* ── TESTIMONIALS ── */
 #depoimentos {
-  background: linear-gradient(180deg, var(--cream), var(--nude) 50%, var(--cream))
+  background: transparent
 }
 
 .test-grid {
@@ -928,14 +928,9 @@ section {
 }
 
 .stars {
-  display: flex;
-  gap: 2px
-}
-
-.stars svg {
-  width: 13px;
-  height: 13px;
-  fill: var(--rose)
+  color: var(--rose);
+  font-size: 14px;
+  letter-spacing: 1px
 }
 
 /* ── INSTAGRAM ── */
@@ -2021,4 +2016,26 @@ footer::before {
 
 #navbar.scrolled {
   box-shadow: 0 4px 28px rgba(122, 48, 72, .14) !important
+}
+
+/* ── BOTANICAL BACKGROUND PATTERN ── */
+body {
+  background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(28%2C28)' fill='%23c8738a' opacity='.085'%3E%3Cellipse ry='6' rx='2.2'/%3E%3Cellipse rx='6' ry='2.2'/%3E%3Cellipse ry='6' rx='2.2' transform='rotate(45)'/%3E%3Cellipse rx='6' ry='2.2' transform='rotate(45)'/%3E%3Ccircle r='2'/%3E%3C/g%3E%3Ccircle cx='0' cy='0' r='1' fill='%23c8738a' opacity='.045'/%3E%3Ccircle cx='56' cy='0' r='1' fill='%23c8738a' opacity='.045'/%3E%3Ccircle cx='0' cy='56' r='1' fill='%23c8738a' opacity='.045'/%3E%3Ccircle cx='56' cy='56' r='1' fill='%23c8738a' opacity='.045'/%3E%3C/svg%3E");
+  background-size: 56px 56px
+}
+
+/* Seções cream mostram o padrão botânico do fundo */
+#faq         { background: transparent }
+#depoimentos { background: transparent }
+#instagram   { background: transparent }
+
+/* ── PREFERS-REDUCED-MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important
+  }
 }
