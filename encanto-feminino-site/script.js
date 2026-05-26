@@ -19,19 +19,13 @@
       { id: 12, name: 'Sabonete Caseiro Artesanal', cat: 'sabonete', price: 10, unit: 'unidade', desc: 'Sabonete caseiro artesanal disponível em qualquer fragrância. Produção sob encomenda com materiais selecionados.', img: 'https://i.ibb.co/btcrJFJ/Whats-App-Image-2026-05-19-at-6-15-44-PM.jpg', sizes: [], colors: ['Qualquer fragrância'], avail: 'encomenda', visible: 1 },
     ];
 
-    const SETTINGS_DEFAULT = { wa: WA, insta: 'encantofeminino', logo: '' };
+    const SETTINGS_DEFAULT = { wa: WA, insta: '_encantofeminino_01', logo: '' };
 
     // ──────────────────────────────────────────────────
     // STATE
     // ──────────────────────────────────────────────────
     let products = JSON.parse(localStorage.getItem('ef_products') || 'null') || DEFAULT_PRODUCTS;
     let settings = JSON.parse(localStorage.getItem('ef_settings') || 'null') || SETTINGS_DEFAULT;
-    let editingChips = { size: [], color: [] };
-
-    function saveData() {
-      localStorage.setItem('ef_products', JSON.stringify(products));
-      localStorage.setItem('ef_settings', JSON.stringify(settings));
-    }
 
     // ──────────────────────────────────────────────────
     // WHATSAPP ICON SVG
@@ -68,7 +62,7 @@
         return `
     <div class="product-card fade-in" data-cat="${p.cat}">
       <div class="prod-img-wrap">
-        <img ${imgStyle} alt="${p.name}" style="width:100%;height:100%;object-fit:cover">
+        <img ${imgStyle} alt="${p.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover">
         ${fallback}
         <span class="prod-badge ${badgeClass}">${badgeText}</span>
       </div>
@@ -102,9 +96,24 @@
       renderProducts(cat);
     }
 
-    // ──────────────────────────────────────────────────
-    // ADMIN — open/close
-    // ──────────────────────────────────────────────────
+    /* ══════════════════════════════════════════════════
+       IMPLEMENTAÇÃO FUTURA: PAINEL ADMIN
+       Para reativar:
+       1. Descomentar este bloco inteiro
+       2. Remover o style="display:none" do botão
+          admin-open-btn em index.html
+       3. Garantir persistência real (ex: backend/DB)
+          pois localStorage não sincroniza entre
+          dispositivos/navegadores diferentes
+    ══════════════════════════════════════════════════
+
+    let editingChips = { size: [], color: [] };
+
+    function saveData() {
+      localStorage.setItem('ef_products', JSON.stringify(products));
+      localStorage.setItem('ef_settings', JSON.stringify(settings));
+    }
+
     function openAdmin() {
       document.getElementById('admin-panel').classList.add('open');
       renderAdminList();
@@ -114,9 +123,6 @@
       document.getElementById('admin-panel').classList.remove('open');
     }
 
-    // ──────────────────────────────────────────────────
-    // ADMIN TABS
-    // ──────────────────────────────────────────────────
     function switchAdminTab(tab, btn) {
       document.querySelectorAll('.admin-tab').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.admin-tab-panel').forEach(p => p.classList.remove('active'));
@@ -124,9 +130,6 @@
       document.getElementById('admin-tab-' + tab).classList.add('active');
     }
 
-    // ──────────────────────────────────────────────────
-    // ADMIN PRODUCTS LIST
-    // ──────────────────────────────────────────────────
     function renderAdminList() {
       const list = document.getElementById('adminProductsList');
       if (!products.length) { list.innerHTML = '<div class="no-products-msg">Nenhum produto cadastrado.</div>'; return; }
@@ -148,9 +151,6 @@
   `).join('');
     }
 
-    // ──────────────────────────────────────────────────
-    // ADD / EDIT
-    // ──────────────────────────────────────────────────
     function editProduct(id) {
       const p = products.find(x => x.id === id);
       if (!p) return;
@@ -231,9 +231,6 @@
       toast('🗑 Produto excluído.');
     }
 
-    // ──────────────────────────────────────────────────
-    // CHIPS (sizes / colors)
-    // ──────────────────────────────────────────────────
     function addChip(e, type) {
       if (e.key !== 'Enter' && e.key !== ',') return;
       e.preventDefault();
@@ -258,18 +255,12 @@
       wrap.innerHTML = chips + `<input class="chip-input" id="${inputId}" placeholder="Digite e pressione Enter" onkeydown="addChip(event,'${type}')">`;
     }
 
-    // ──────────────────────────────────────────────────
-    // IMAGE PREVIEW
-    // ──────────────────────────────────────────────────
     function previewImg(url) {
       const pr = document.getElementById('imgPreview');
       if (url) { pr.src = url; pr.style.display = 'block'; pr.onerror = () => { pr.style.display = 'none' }; }
       else pr.style.display = 'none';
     }
 
-    // ──────────────────────────────────────────────────
-    // SETTINGS
-    // ──────────────────────────────────────────────────
     function loadSettings() {
       document.getElementById('s-wa').value = settings.wa || '';
       document.getElementById('s-insta').value = settings.insta || '';
@@ -282,27 +273,22 @@
       saveData();
       if (settings.logo) {
         document.getElementById('heroLogoImg').src = settings.logo;
-        document.getElementById('heroLogoImg').style.display = 'block';
-        document.getElementById('heroLogoFallback').style.display = 'none';
       }
       toast('✅ Configurações salvas!');
     }
     function previewLogo(url) {
       if (url) {
         document.getElementById('heroLogoImg').src = url;
-        document.getElementById('heroLogoImg').style.display = 'block';
-        document.getElementById('heroLogoFallback').style.display = 'none';
       }
     }
 
-    // ──────────────────────────────────────────────────
-    // TOAST
-    // ──────────────────────────────────────────────────
     function toast(msg) {
       const t = document.getElementById('adminToast');
       t.textContent = msg; t.classList.add('show');
       setTimeout(() => t.classList.remove('show'), 2800);
     }
+
+    ══════════════════════════════════════════════════ */
 
     // ──────────────────────────────────────────────────
     // NAV / MOBILE
@@ -310,6 +296,10 @@
     document.getElementById('hambBtn').onclick = () => document.getElementById('mobileMenu').classList.toggle('open');
     document.getElementById('menuClose').onclick = () => document.getElementById('mobileMenu').classList.remove('open');
     function closeMob() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+    document.getElementById('mobileMenu').addEventListener('click', function (e) {
+      if (e.target === this) closeMob();
+    });
 
     window.addEventListener('scroll', () => {
       document.getElementById('navbar').style.boxShadow = window.scrollY > 30 ? '0 2px 20px rgba(122,48,72,.1)' : 'none';
@@ -337,9 +327,3 @@
     // INIT
     // ──────────────────────────────────────────────────
     renderProducts('todos');
-    if (settings.logo) {
-      document.getElementById('heroLogoImg').src = settings.logo;
-      document.getElementById('heroLogoImg').style.display = 'block';
-      document.getElementById('heroLogoFallback').style.display = 'none';
-    }
-  

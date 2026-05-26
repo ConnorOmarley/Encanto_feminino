@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Encanto Feminino M</title>
+  <title>Encanto Feminino</title>
   <link rel="icon" type="image/png"
     href="https://i.ibb.co/6RVwh4Yf/688606602-18405488932198150-9215705110699613256-n-modified.png">
   <meta name="description"
@@ -35,12 +35,12 @@
       <a href="#instagram">Instagram</a>
     </div>
     <a href="https://wa.me/5581997932468?text=Ol%C3%A1%21+Vim+pelo+site" target="_blank" class="nav-cta">WhatsApp</a>
-    <button class="hamburger" id="hambBtn"><span></span><span></span><span></span></button>
+    <button class="hamburger" id="hambBtn" type="button" aria-label="Abrir menu"><span></span><span></span><span></span></button>
   </nav>
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
-    <button class="menu-close" id="menuClose">✕</button>
+    <button class="menu-close" id="menuClose" type="button" aria-label="Fechar menu">✕</button>
     <a href="#catalogo" onclick="closeMob()">Catálogo</a>
     <a href="#como-funciona" onclick="closeMob()">Como Funciona</a>
     <a href="#faq" onclick="closeMob()">Dúvidas</a>
@@ -62,7 +62,7 @@
       </div>
 
       <img src="https://i.ibb.co/6RVwh4Yf/688606602-18405488932198150-9215705110699613256-n-modified.png"
-        alt="Logo Encanto Feminino" class="hero-logo-img" id="heroLogoImg">
+        alt="Logo Encanto Feminino" class="hero-logo-img" id="heroLogoImg" loading="lazy">
 
       <h1 class="hero-title">Encanto <em>Feminino</em></h1>
       <div class="hero-div"><span>✿</span></div>
@@ -139,11 +139,11 @@
           produto para solicitar pelo WhatsApp. Fácil e rápido!</p>
       </div>
       <div class="catalog-filters fade-in" id="filterBtns">
-        <button class="filter-btn active" onclick="filterCat('todos',this)">Todos</button>
-        <button class="filter-btn" onclick="filterCat('pijama',this)">Pijamas</button>
-        <button class="filter-btn" onclick="filterCat('lingerie',this)">Lingeries</button>
-        <button class="filter-btn" onclick="filterCat('calcinha',this)">Calcinhas</button>
-        <button class="filter-btn" onclick="filterCat('sabonete',this)">Sabonetes</button>
+        <button class="filter-btn active" type="button" onclick="filterCat('todos',this)">Todos</button>
+        <button class="filter-btn" type="button" onclick="filterCat('pijama',this)">Pijamas</button>
+        <button class="filter-btn" type="button" onclick="filterCat('lingerie',this)">Lingeries</button>
+        <button class="filter-btn" type="button" onclick="filterCat('calcinha',this)">Calcinhas</button>
+        <button class="filter-btn" type="button" onclick="filterCat('sabonete',this)">Sabonetes</button>
       </div>
       <div class="products-grid" id="productsGrid"></div>
     </div>
@@ -204,7 +204,7 @@
         <h2 class="section-title">Perguntas <em>Frequentes</em></h2>
       </div>
       <div class="faq-list fade-in">
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Como funciona a encomenda?<div
+        <div class="faq-item"><button class="faq-q" type="button" onclick="toggleFaq(this)">Como funciona a encomenda?<div
               class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
               </svg></div></button>
@@ -213,7 +213,7 @@
               tamanho, cores e forma de pagamento. Após confirmação, iniciamos a produção ou separamos seu pedido.</p>
           </div>
         </div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Qual o prazo de produção?<div
+        <div class="faq-item"><button class="faq-q" type="button" onclick="toggleFaq(this)">Qual o prazo de produção?<div
               class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
               </svg></div></button>
@@ -223,7 +223,7 @@
               estimado no momento do pedido.</p>
           </div>
         </div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Vocês fazem entrega?<div class="faq-icon">
+        <div class="faq-item"><button class="faq-q" type="button" onclick="toggleFaq(this)">Vocês fazem entrega?<div class="faq-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
@@ -233,7 +233,7 @@
               em local conveniente. Os detalhes são acertados pelo WhatsApp.</p>
           </div>
         </div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Como faço meu pedido?<div
+        <div class="faq-item"><button class="faq-q" type="button" onclick="toggleFaq(this)">Como faço meu pedido?<div
               class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
               </svg></div></button>
@@ -242,7 +242,7 @@
               conversa onde poderá tirar dúvidas e finalizar seu pedido.</p>
           </div>
         </div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Os produtos possuem pronta entrega?<div
+        <div class="faq-item"><button class="faq-q" type="button" onclick="toggleFaq(this)">Os produtos possuem pronta entrega?<div
               class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
               </svg></div></button>
@@ -251,7 +251,7 @@
               a disponibilidade pelo WhatsApp.</p>
           </div>
         </div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Posso personalizar os sabonetes?<div
+        <div class="faq-item"><button class="faq-q" type="button" onclick="toggleFaq(this)">Posso personalizar os sabonetes?<div
               class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
               </svg></div></button>
@@ -371,7 +371,7 @@
   <section id="instagram">
     <div class="container">
       <div class="fade-in">
-        <div class="section-label">@encantofeminino</div>
+        <div class="section-label">@_encantofeminino_01</div>
         <h2 class="section-title">Siga nosso <em>Instagram</em></h2>
         <p style="color:var(--text-light);font-size:.87rem;max-width:400px;margin:.4rem auto 0">Acompanhe novidades,
           bastidores e inspirações no nosso perfil.</p>
@@ -478,7 +478,7 @@
           <h4>Contato</h4>
           <ul>
             <li><a href="https://wa.me/5581997932468" target="_blank">(81) 99793-2468</a></li>
-            <li><a href="https://instagram.com/_encantofeminino_01" target="_blank">@encantofeminino</a></li>
+            <li><a href="https://instagram.com/_encantofeminino_01" target="_blank">@_encantofeminino_01</a></li>
             <li><a href="#como-funciona">Como funciona</a></li>
             <li><a href="#faq">Dúvidas</a></li>
           </ul>
@@ -492,7 +492,7 @@
 
   <!-- WHATSAPP FLOAT -->
   <div class="wa-float">
-    <a href="https://wa.me/5581997932468?text=Ol%C3%A1%21+Vim+pelo+site" target="_blank">
+    <a href="https://wa.me/5581997932468?text=Ol%C3%A1%21+Vim+pelo+site" target="_blank" aria-label="Fale conosco pelo WhatsApp">
       <span class="wa-tooltip">Fale conosco 💬</span>
       <svg viewBox="0 0 24 24">
         <path
@@ -501,8 +501,8 @@
     </a>
   </div>
 
-  <!-- ADMIN OPEN BUTTON -->
-  <button class="admin-open-btn" id="adminOpenBtn" title="Painel Admin" onclick="openAdmin()">⚙️</button>
+  <!-- IMPLEMENTAÇÃO FUTURA: Painel Admin (descomentar no JS também) -->
+  <button class="admin-open-btn" id="adminOpenBtn" title="Painel Admin" onclick="openAdmin()" style="display:none" aria-hidden="true">⚙️</button>
 
   <!-- ADMIN PANEL -->
   <div id="admin-panel">
