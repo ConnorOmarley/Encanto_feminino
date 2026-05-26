@@ -302,7 +302,7 @@
     });
 
     window.addEventListener('scroll', () => {
-      document.getElementById('navbar').style.boxShadow = window.scrollY > 30 ? '0 2px 20px rgba(122,48,72,.1)' : 'none';
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30);
     });
 
     // ──────────────────────────────────────────────────
