@@ -74,7 +74,7 @@
         <div class="prod-meta">
           ${sizesHtml}${colorsHtml}
         </div>
-        <a href="${waLink(p.name)}" target="_blank" class="prod-btn">
+        <a href="${waLink(p.name)}" target="_blank" rel="noopener noreferrer" class="prod-btn">
           ${WA_SVG} Solicitar pelo WhatsApp
         </a>
       </div>
