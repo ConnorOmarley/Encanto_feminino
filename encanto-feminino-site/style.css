@@ -19,7 +19,7 @@
   --blush-mid: #f9d5e5;
   --text-dark: #3d1e2c;
   --text-mid: #7a4f5c;
-  --text-light: #b08890;
+  --text-light: #8a5f6d;
   --white: #fff;
   --shadow: rgba(122, 48, 72, .12);
   --shadow-deep: rgba(122, 48, 72, .22);
@@ -101,7 +101,7 @@ nav {
 }
 
 .nav-links a:hover {
-  color: var(--rose)
+  color: var(--rose-deep)
 }
 
 .nav-cta {
@@ -322,13 +322,14 @@ h1.hero-title em {
 
 .hero-sub {
   font-size: 1.05rem;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text-mid);
   margin-bottom: .6rem
 }
 
 .hero-text {
   font-size: .88rem;
+  font-weight: 400;
   color: var(--text-light);
   max-width: 400px;
   margin: 0 auto 2.2rem
@@ -363,8 +364,8 @@ h1.hero-title em {
 }
 
 .btn-outline {
-  border: 1.5px solid var(--rose);
-  color: var(--rose);
+  border: 1.5px solid var(--rose-deep);
+  color: var(--rose-deep);
   padding: .85rem 1.8rem;
   border-radius: 99px;
   text-decoration: none;
@@ -437,7 +438,7 @@ section {
 .about-text p {
   color: var(--text-mid);
   margin-bottom: .9rem;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1rem;
   line-height: 1.8
 }
@@ -532,8 +533,8 @@ section {
 }
 
 .filter-btn:not(.active):hover {
-  border-color: var(--rose);
-  color: var(--rose)
+  border-color: var(--rose-deep);
+  color: var(--rose-deep)
 }
 
 .products-grid {
@@ -617,7 +618,7 @@ section {
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--rose-light);
+  color: var(--rose-deep);
   margin-bottom: .3rem
 }
 
@@ -631,7 +632,7 @@ section {
 }
 
 .product-card:hover .prod-name {
-  color: var(--rose)
+  color: var(--rose-deep)
 }
 
 .prod-desc {
@@ -857,7 +858,7 @@ section {
   font-size: .84rem;
   color: var(--text-mid);
   line-height: 1.75;
-  font-weight: 300
+  font-weight: 400
 }
 
 /* ── TESTIMONIALS ── */
@@ -1012,7 +1013,7 @@ footer {
 .foot-brand-desc {
   font-size: .8rem;
   line-height: 1.7;
-  font-weight: 300;
+  font-weight: 400;
   max-width: 260px;
   margin-bottom: 1.3rem
 }
@@ -2037,5 +2038,10 @@ body {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important
+  }
+  /* A barra de anúncios é conteúdo funcional — mantém o marquee rodando */
+  .announcement-track {
+    animation-duration: 40s !important;
+    animation-iteration-count: infinite !important
   }
 }
