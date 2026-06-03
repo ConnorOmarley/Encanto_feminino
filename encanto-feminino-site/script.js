@@ -5,18 +5,18 @@
     const WA = '5581997932468';
 
     const DEFAULT_PRODUCTS = [
-      { id: 1, name: 'Pijama Americano', cat: 'pijama', price: 55, unit: 'conjunto', desc: 'Conjunto calça e camiseta quentinho e estampado, ideal para noites confortáveis e femininas.', img: 'https://i.ibb.co/RGcjnfVb/Chat-GPT-Image-20-de-mai-de-2026-19-03-11.png', sizes: ['P', 'M', 'G', 'GG'], colors: ['Rosa', 'Azul', 'Lilás'], avail: 'encomenda', visible: 1 },
-      { id: 2, name: 'Camisola de Renda', cat: 'lingerie', price: 60, unit: 'peça', desc: 'Camisola elegante com detalhes em renda delicada, perfeita para noites especiais e presentes.', img: 'https://i.ibb.co/KzDSsbgg/comprar-camisola-alcinha-alca-curta-renda-fofuxa-pijamas-promocao-online-microfibra-liganete-verao-3.webp', sizes: ['P', 'M', 'G', 'GG'], colors: ['Rosa', 'Branco', 'Preto', 'Vinho'], avail: 'encomenda', visible: 1 },
-      { id: 3, name: 'Baby Doll', cat: 'lingerie', price: 55, unit: 'conjunto', desc: 'Conjunto baby doll curto e delicado, confortável e feminino para dias quentes.', img: 'https://i.ibb.co/5XsNwRP5/1-287.webp', sizes: ['P', 'M', 'G', 'GG'], colors: ['Rosa', 'Preto', 'Branco'], avail: 'encomenda', visible: 1 },
-      { id: 4, name: 'Baby Doll Suede', cat: 'lingerie', price: 50, unit: 'conjunto', desc: 'Baby doll em tecido suede macio e sofisticado, leve e com toque aveludado.', img: 'https://i.ibb.co/G6t8mTr/269654.webp', sizes: ['P', 'M', 'G', 'GG'], colors: ['Rosa', 'Nude', 'Vinho', 'Preto'], avail: 'encomenda', visible: 1 },
-      { id: 5, name: 'Conjunto Infantil Americano', cat: 'pijama', price: 50, unit: 'conjunto', desc: 'Conjunto pijama infantil estampado, macio e confortável para as crianças.', img: 'https://i.ibb.co/27mrMBbG/D-NQ-NP-2-X-651009-MLB107258180904-032026-F.webp', sizes: ['2', '4', '6', '8', '10', '12'], colors: ['Rosa', 'Azul', 'Verde'], avail: 'encomenda', visible: 1 },
-      { id: 6, name: 'Macaquito Suede', cat: 'lingerie', price: 40, unit: 'peça', desc: 'Macaquito feminino em suede aveludado, estiloso e confortável para o dia a dia.', img: 'https://i.ibb.co/B54FzdrC/2e428ff9-e115-4a2c-8234-b904279ce876.jpg', sizes: ['P', 'M', 'G', 'GG'], colors: ['Nude', 'Rosa', 'Preto', 'Bordô'], avail: 'encomenda', visible: 1 },
-      { id: 7, name: 'Lingerie Renda Bordada', cat: 'lingerie', price: 60, unit: 'conjunto', desc: 'Conjunto lingerie com renda bordada de alta qualidade, sofisticado e delicado.', img: 'https://i.ibb.co/s9ft0GTk/19.jpg', sizes: ['P', 'M', 'G', 'GG'], colors: ['Preto', 'Vinho', 'Rosa', 'Nude'], avail: 'encomenda', visible: 1 },
-      { id: 8, name: 'Lingerie de Renda', cat: 'lingerie', price: 50, unit: 'conjunto', desc: 'Conjunto lingerie em renda delicada, confortável e feminina para o dia a dia.', img: 'https://i.ibb.co/b5v6q7hp/ycsyx43xtwc7oozldkr0g-output-00001-974f70a9deab058bb017490624502312-1024-1024.webp', sizes: ['P', 'M', 'G', 'GG'], colors: ['Preto', 'Rosa', 'Branco', 'Vermelho'], avail: 'encomenda', visible: 1 },
-      { id: 9, name: 'Calcinha Semi Fio', cat: 'calcinha', price: 5, unit: 'unidade', desc: 'Calcinha semi fio em renda delicada. Vendida por unidade — compre quantas quiser!', img: 'https://i.ibb.co/8gYmGvTH/D-NQ-NP-733921-MLB111343142601-052026-O-suti-renda-tule-calsinha-fio-dental-lingerie-feminina-sex.webp', sizes: ['P', 'M', 'G', 'GG'], colors: ['Preto', 'Rosa', 'Branco', 'Vinho', 'Bege'], avail: 'disponivel', visible: 1 },
-      { id: 10, name: 'Calcinha Normal', cat: 'calcinha', price: 6, unit: 'unidade', desc: 'Calcinha básica confortável em renda. Vendida por unidade.', img: 'https://i.ibb.co/PGCqkzzR/shopping.webp', sizes: ['P', 'M', 'G', 'GG'], colors: ['Preto', 'Rosa', 'Branco', 'Bege', 'Azul'], avail: 'disponivel', visible: 1 },
-      { id: 11, name: 'Sabonete Artesanal', cat: 'sabonete', price: 10, unit: 'unidade', desc: 'Sabonete decorativo artesanal de alta qualidade. Perfeito para usar ou presentear. Formatos variados.', img: 'https://i.ibb.co/ycjTYBvd/Whats-App-Image-2026-05-19-at-5-42-01-PM.jpg', sizes: [], colors: ['Rosa', 'Branco', 'Lilás', 'Pêssego'], avail: 'encomenda', visible: 1 },
-      { id: 12, name: 'Sabonete Caseiro Artesanal', cat: 'sabonete', price: 10, unit: 'unidade', desc: 'Sabonete caseiro artesanal disponível em qualquer fragrância. Produção sob encomenda com materiais selecionados.', img: 'https://i.ibb.co/btcrJFJ/Whats-App-Image-2026-05-19-at-6-15-44-PM.jpg', sizes: [], colors: ['Qualquer fragrância'], avail: 'encomenda', visible: 1 },
+      { id: 1, name: 'Pijama Americano', cat: 'pijama', price: 55, unit: 'conjunto', desc: 'Conjunto calça e camiseta quentinho e estampado, ideal para noites confortáveis e femininas.', img: 'https://i.ibb.co/RGcjnfVb/Chat-GPT-Image-20-de-mai-de-2026-19-03-11.png', images: ['https://i.ibb.co/RGcjnfVb/Chat-GPT-Image-20-de-mai-de-2026-19-03-11.png', 'https://images.pexels.com/photos/8416045/pexels-photo-8416045.jpeg?auto=compress&cs=tinysrgb&w=600', 'https://images.pexels.com/photos/15585242/pexels-photo-15585242.jpeg?auto=compress&cs=tinysrgb&w=600'], sizes: ['P', 'M', 'G', 'GG'], colors: ['Rosa', 'Azul', 'Lilás'], avail: 'encomenda', visible: 1 },
+      { id: 2, name: 'Camisola de Renda', cat: 'lingerie', price: 60, unit: 'peça', desc: 'Camisola elegante com detalhes em renda delicada, perfeita para noites especiais e presentes.', img: 'https://i.ibb.co/KzDSsbgg/comprar-camisola-alcinha-alca-curta-renda-fofuxa-pijamas-promocao-online-microfibra-liganete-verao-3.webp', images: ['https://i.ibb.co/KzDSsbgg/comprar-camisola-alcinha-alca-curta-renda-fofuxa-pijamas-promocao-online-microfibra-liganete-verao-3.webp', 'https://images.pexels.com/photos/8789183/pexels-photo-8789183.jpeg?auto=compress&cs=tinysrgb&w=600', 'https://images.pexels.com/photos/8789159/pexels-photo-8789159.jpeg?auto=compress&cs=tinysrgb&w=600'], sizes: ['P', 'M', 'G', 'GG'], colors: ['Rosa', 'Branco', 'Preto', 'Vinho'], avail: 'encomenda', visible: 1 },
+      { id: 3, name: 'Baby Doll', cat: 'lingerie', price: 55, unit: 'conjunto', desc: 'Conjunto baby doll curto e delicado, confortável e feminino para dias quentes.', img: 'https://i.ibb.co/5XsNwRP5/1-287.webp', images: ['https://i.ibb.co/5XsNwRP5/1-287.webp', 'https://images.pexels.com/photos/8416242/pexels-photo-8416242.jpeg?auto=compress&cs=tinysrgb&w=600', 'https://images.pexels.com/photos/6443377/pexels-photo-6443377.jpeg?auto=compress&cs=tinysrgb&w=600'], sizes: ['P', 'M', 'G', 'GG'], colors: ['Rosa', 'Preto', 'Branco'], avail: 'encomenda', visible: 1 },
+      { id: 4, name: 'Baby Doll Suede', cat: 'lingerie', price: 50, unit: 'conjunto', desc: 'Baby doll em tecido suede macio e sofisticado, leve e com toque aveludado.', img: 'https://i.ibb.co/G6t8mTr/269654.webp', images: ['https://i.ibb.co/G6t8mTr/269654.webp', 'https://images.pexels.com/photos/8416203/pexels-photo-8416203.jpeg?auto=compress&cs=tinysrgb&w=600', 'https://images.pexels.com/photos/8416047/pexels-photo-8416047.jpeg?auto=compress&cs=tinysrgb&w=600'], sizes: ['P', 'M', 'G', 'GG'], colors: ['Rosa', 'Nude', 'Vinho', 'Preto'], avail: 'encomenda', visible: 1 },
+      { id: 5, name: 'Conjunto Infantil Americano', cat: 'pijama', price: 50, unit: 'conjunto', desc: 'Conjunto pijama infantil estampado, macio e confortável para as crianças.', img: 'https://i.ibb.co/27mrMBbG/D-NQ-NP-2-X-651009-MLB107258180904-032026-F.webp', images: ['https://i.ibb.co/27mrMBbG/D-NQ-NP-2-X-651009-MLB107258180904-032026-F.webp', 'https://images.pexels.com/photos/18820123/pexels-photo-18820123.jpeg?auto=compress&cs=tinysrgb&w=600', 'https://images.pexels.com/photos/8790313/pexels-photo-8790313.jpeg?auto=compress&cs=tinysrgb&w=600'], sizes: ['2', '4', '6', '8', '10', '12'], colors: ['Rosa', 'Azul', 'Verde'], avail: 'encomenda', visible: 1 },
+      { id: 6, name: 'Macaquito Suede', cat: 'lingerie', price: 40, unit: 'peça', desc: 'Macaquito feminino em suede aveludado, estiloso e confortável para o dia a dia.', img: 'https://i.ibb.co/B54FzdrC/2e428ff9-e115-4a2c-8234-b904279ce876.jpg', images: ['https://i.ibb.co/B54FzdrC/2e428ff9-e115-4a2c-8234-b904279ce876.jpg', 'https://images.pexels.com/photos/9162883/pexels-photo-9162883.jpeg?auto=compress&cs=tinysrgb&w=600', 'https://images.pexels.com/photos/9162884/pexels-photo-9162884.jpeg?auto=compress&cs=tinysrgb&w=600'], sizes: ['P', 'M', 'G', 'GG'], colors: ['Nude', 'Rosa', 'Preto', 'Bordô'], avail: 'encomenda', visible: 1 },
+      { id: 7, name: 'Lingerie Renda Bordada', cat: 'lingerie', price: 60, unit: 'conjunto', desc: 'Conjunto lingerie com renda bordada de alta qualidade, sofisticado e delicado.', img: 'https://i.ibb.co/s9ft0GTk/19.jpg', images: ['https://i.ibb.co/s9ft0GTk/19.jpg', 'https://images.pexels.com/photos/9162886/pexels-photo-9162886.jpeg?auto=compress&cs=tinysrgb&w=600', 'https://images.pexels.com/photos/9162888/pexels-photo-9162888.jpeg?auto=compress&cs=tinysrgb&w=600'], sizes: ['P', 'M', 'G', 'GG'], colors: ['Preto', 'Vinho', 'Rosa', 'Nude'], avail: 'encomenda', visible: 1 },
+      { id: 8, name: 'Lingerie de Renda', cat: 'lingerie', price: 50, unit: 'conjunto', desc: 'Conjunto lingerie em renda delicada, confortável e feminina para o dia a dia.', img: 'https://i.ibb.co/b5v6q7hp/ycsyx43xtwc7oozldkr0g-output-00001-974f70a9deab058bb017490624502312-1024-1024.webp', images: ['https://i.ibb.co/b5v6q7hp/ycsyx43xtwc7oozldkr0g-output-00001-974f70a9deab058bb017490624502312-1024-1024.webp', 'https://images.pexels.com/photos/8731361/pexels-photo-8731361.jpeg?auto=compress&cs=tinysrgb&w=600', 'https://images.pexels.com/photos/8731360/pexels-photo-8731360.jpeg?auto=compress&cs=tinysrgb&w=600'], sizes: ['P', 'M', 'G', 'GG'], colors: ['Preto', 'Rosa', 'Branco', 'Vermelho'], avail: 'encomenda', visible: 1 },
+      { id: 9, name: 'Calcinha Semi Fio', cat: 'calcinha', price: 5, unit: 'unidade', desc: 'Calcinha semi fio em renda delicada. Vendida por unidade — compre quantas quiser!', img: 'https://i.ibb.co/8gYmGvTH/D-NQ-NP-733921-MLB111343142601-052026-O-suti-renda-tule-calsinha-fio-dental-lingerie-feminina-sex.webp', images: ['https://i.ibb.co/8gYmGvTH/D-NQ-NP-733921-MLB111343142601-052026-O-suti-renda-tule-calsinha-fio-dental-lingerie-feminina-sex.webp', 'https://images.pexels.com/photos/11010392/pexels-photo-11010392.jpeg?auto=compress&cs=tinysrgb&w=600', 'https://images.pexels.com/photos/11010388/pexels-photo-11010388.jpeg?auto=compress&cs=tinysrgb&w=600'], sizes: ['P', 'M', 'G', 'GG'], colors: ['Preto', 'Rosa', 'Branco', 'Vinho', 'Bege'], avail: 'disponivel', visible: 1 },
+      { id: 10, name: 'Calcinha Normal', cat: 'calcinha', price: 6, unit: 'unidade', desc: 'Calcinha básica confortável em renda. Vendida por unidade.', img: 'https://i.ibb.co/PGCqkzzR/shopping.webp', images: ['https://i.ibb.co/PGCqkzzR/shopping.webp', 'https://images.pexels.com/photos/9162887/pexels-photo-9162887.jpeg?auto=compress&cs=tinysrgb&w=600', 'https://images.pexels.com/photos/8731362/pexels-photo-8731362.jpeg?auto=compress&cs=tinysrgb&w=600'], sizes: ['P', 'M', 'G', 'GG'], colors: ['Preto', 'Rosa', 'Branco', 'Bege', 'Azul'], avail: 'disponivel', visible: 1 },
+      { id: 11, name: 'Sabonete Artesanal', cat: 'sabonete', price: 10, unit: 'unidade', desc: 'Sabonete decorativo artesanal de alta qualidade. Perfeito para usar ou presentear. Formatos variados.', img: 'https://i.ibb.co/ycjTYBvd/Whats-App-Image-2026-05-19-at-5-42-01-PM.jpg', images: ['https://i.ibb.co/ycjTYBvd/Whats-App-Image-2026-05-19-at-5-42-01-PM.jpg', 'https://i.ibb.co/btcrJFJ/Whats-App-Image-2026-05-19-at-6-15-44-PM.jpg', 'https://images.pexels.com/photos/5938598/pexels-photo-5938598.jpeg?auto=compress&cs=tinysrgb&w=600'], sizes: [], colors: ['Rosa', 'Branco', 'Lilás', 'Pêssego'], avail: 'encomenda', visible: 1 },
+      { id: 12, name: 'Sabonete Caseiro Artesanal', cat: 'sabonete', price: 10, unit: 'unidade', desc: 'Sabonete caseiro artesanal disponível em qualquer fragrância. Produção sob encomenda com materiais selecionados.', img: 'https://i.ibb.co/btcrJFJ/Whats-App-Image-2026-05-19-at-6-15-44-PM.jpg', images: ['https://i.ibb.co/btcrJFJ/Whats-App-Image-2026-05-19-at-6-15-44-PM.jpg', 'https://images.pexels.com/photos/6621470/pexels-photo-6621470.jpeg?auto=compress&cs=tinysrgb&w=600', 'https://images.pexels.com/photos/6930879/pexels-photo-6930879.jpeg?auto=compress&cs=tinysrgb&w=600'], sizes: [], colors: ['Qualquer fragrância'], avail: 'encomenda', visible: 1 },
     ];
 
     const SETTINGS_DEFAULT = { wa: WA, insta: '_encantofeminino_01', logo: '' };
@@ -25,6 +25,14 @@
     // STATE
     // ──────────────────────────────────────────────────
     let products = JSON.parse(localStorage.getItem('ef_products') || 'null') || DEFAULT_PRODUCTS;
+    // Migrate: inject images array from defaults into stored products that don't have one
+    products = products.map(p => {
+      if (!p.images) {
+        const def = DEFAULT_PRODUCTS.find(d => d.id === p.id);
+        if (def && def.images) return { ...p, images: def.images };
+      }
+      return p;
+    });
     let settings = JSON.parse(localStorage.getItem('ef_settings') || 'null') || SETTINGS_DEFAULT;
 
     // ──────────────────────────────────────────────────
@@ -55,15 +63,21 @@
         const badgeClass = p.avail === 'disponivel' ? 'badge-disponivel' : 'badge-encomenda';
         const badgeText = p.avail === 'disponivel' ? '✓ Disponível' : '⏱ Sob encomenda';
         const priceLabel = `R$ ${Number(p.price).toFixed(2).replace('.', ',')} <span>/ ${p.unit}</span>`;
+        const imgs = Array.isArray(p.images) && p.images.length > 1 ? p.images : null;
         const imgStyle = p.img ? `src="${p.img}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"` : `src="" style="display:none"`;
         const fallback = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(135deg,var(--blush-mid),var(--rose-pale));${p.img ? 'display:none' : ''}">
       ${p.cat === 'sabonete' ? '🧼' : p.cat === 'pijama' ? '🌙' : '🌸'}
     </div>`;
+        const imgAreaHtml = imgs
+          ? `<div class="prod-slider" data-slides="${imgs.length}">
+              <div class="prod-slides">${imgs.map(s => `<img src="${s}" alt="${p.name}" loading="lazy" class="slide-img" onerror="this.style.opacity='0'">`).join('')}</div>
+              <div class="prod-dots">${imgs.map((_, i) => `<button class="dot${i === 0 ? ' active' : ''}" aria-label="Foto ${i + 1}"></button>`).join('')}</div>
+            </div>`
+          : `<img ${imgStyle} alt="${p.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover">${fallback}`;
         return `
     <div class="product-card fade-in" data-cat="${p.cat}">
       <div class="prod-img-wrap">
-        <img ${imgStyle} alt="${p.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-        ${fallback}
+        ${imgAreaHtml}
         <span class="prod-badge ${badgeClass}">${badgeText}</span>
       </div>
       <div class="prod-info">
@@ -82,7 +96,31 @@
       }).join('');
       setTimeout(() => {
         document.querySelectorAll('.product-card').forEach(el => observer.observe(el));
+        initSliders();
       }, 50);
+    }
+
+    // ──────────────────────────────────────────────────
+    // PRODUCT IMAGE SLIDER
+    // ──────────────────────────────────────────────────
+    let _sliderTimers = [];
+    function initSliders() {
+      _sliderTimers.forEach(clearInterval);
+      _sliderTimers = [];
+      document.querySelectorAll('.prod-slider').forEach(slider => {
+        const count = parseInt(slider.dataset.slides) || 0;
+        if (count < 2) return;
+        const slidesEl = slider.querySelector('.prod-slides');
+        const dots = slider.querySelectorAll('.dot');
+        let cur = 0;
+        function goTo(n) {
+          cur = ((n % count) + count) % count;
+          slidesEl.style.transform = `translateX(-${cur * 100}%)`;
+          dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+        }
+        dots.forEach((d, i) => d.addEventListener('click', e => { e.preventDefault(); goTo(i); }));
+        _sliderTimers.push(setInterval(() => goTo(cur + 1), 3200));
+      });
     }
 
     // ──────────────────────────────────────────────────
