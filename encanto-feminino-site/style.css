@@ -709,6 +709,55 @@ section {
   flex-shrink: 0
 }
 
+/* ── PRODUCT SLIDER ── */
+.prod-slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative
+}
+
+.prod-slides {
+  display: flex;
+  height: 100%;
+  transition: transform .55s cubic-bezier(.4,0,.2,1);
+  will-change: transform
+}
+
+.prod-slides .slide-img {
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  display: block
+}
+
+.prod-dots {
+  position: absolute;
+  bottom: .55rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: .35rem;
+  z-index: 3
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.5);
+  border: 1px solid rgba(255,255,255,.4);
+  padding: 0;
+  cursor: pointer;
+  transition: background .3s, transform .3s
+}
+
+.dot.active {
+  background: #fff;
+  transform: scale(1.3)
+}
+
 /* ── HOW IT WORKS ── */
 #como-funciona {
   background: linear-gradient(180deg, var(--cream), var(--blush) 50%, var(--cream))
@@ -2019,10 +2068,10 @@ footer::before {
   box-shadow: 0 4px 28px rgba(122, 48, 72, .14) !important
 }
 
-/* ── BOTANICAL BACKGROUND PATTERN ── */
+/* ── SMALL FLOWERS BACKGROUND ── */
 body {
-  background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(28%2C28)' fill='%23c8738a' opacity='.085'%3E%3Cellipse ry='6' rx='2.2'/%3E%3Cellipse rx='6' ry='2.2'/%3E%3Cellipse ry='6' rx='2.2' transform='rotate(45)'/%3E%3Cellipse rx='6' ry='2.2' transform='rotate(45)'/%3E%3Ccircle r='2'/%3E%3C/g%3E%3Ccircle cx='0' cy='0' r='1' fill='%23c8738a' opacity='.045'/%3E%3Ccircle cx='56' cy='0' r='1' fill='%23c8738a' opacity='.045'/%3E%3Ccircle cx='0' cy='56' r='1' fill='%23c8738a' opacity='.045'/%3E%3Ccircle cx='56' cy='56' r='1' fill='%23c8738a' opacity='.045'/%3E%3C/svg%3E");
-  background-size: 56px 56px
+  background-image: url("data:image/svg+xml,%3Csvg width='150' height='150' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(45,48)' fill='%23c8738a' opacity='.11'%3E%3Cellipse cx='0' cy='-10' rx='5' ry='9'/%3E%3Cellipse cx='0' cy='-10' rx='5' ry='9' transform='rotate(72)'/%3E%3Cellipse cx='0' cy='-10' rx='5' ry='9' transform='rotate(144)'/%3E%3Cellipse cx='0' cy='-10' rx='5' ry='9' transform='rotate(216)'/%3E%3Cellipse cx='0' cy='-10' rx='5' ry='9' transform='rotate(288)'/%3E%3Ccircle r='4' opacity='.7'/%3E%3C/g%3E%3Cg transform='translate(112,98)rotate(20)' fill='%23c8738a' opacity='.09'%3E%3Cellipse cx='0' cy='-7' rx='3.5' ry='6'/%3E%3Cellipse cx='0' cy='-7' rx='3.5' ry='6' transform='rotate(72)'/%3E%3Cellipse cx='0' cy='-7' rx='3.5' ry='6' transform='rotate(144)'/%3E%3Cellipse cx='0' cy='-7' rx='3.5' ry='6' transform='rotate(216)'/%3E%3Cellipse cx='0' cy='-7' rx='3.5' ry='6' transform='rotate(288)'/%3E%3Ccircle r='2.5' opacity='.7'/%3E%3C/g%3E%3Cg transform='translate(20,118)rotate(-15)' fill='%23c8738a' opacity='.08'%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5'/%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5' transform='rotate(72)'/%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5' transform='rotate(144)'/%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5' transform='rotate(216)'/%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5' transform='rotate(288)'/%3E%3Ccircle r='2' opacity='.7'/%3E%3C/g%3E%3Cg transform='translate(128,28)rotate(35)' fill='%23c8738a' opacity='.08'%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5'/%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5' transform='rotate(72)'/%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5' transform='rotate(144)'/%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5' transform='rotate(216)'/%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5' transform='rotate(288)'/%3E%3Ccircle r='2' opacity='.7'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 150px 150px
 }
 
 /* Seções cream mostram o padrão botânico do fundo */
@@ -2043,5 +2092,400 @@ body {
   .announcement-track {
     animation-duration: 40s !important;
     animation-iteration-count: infinite !important
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   LUXURY EDITORIAL UPGRADE — Encanto Feminino v2
+   Cormorant Garamond · ghost text · stagger · shimmer · refinements
+══════════════════════════════════════════════════════════════════ */
+
+/* ── DISPLAY FONT VARIABLE ── */
+:root {
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* ── ASSIGN CORMORANT GARAMOND TO ALL HEADLINES ── */
+h1.hero-title,
+.section-title,
+.nav-logo,
+.foot-brand-name,
+.foot-col h4,
+.mobile-menu a,
+.prod-name,
+.step-title,
+.about-card-title,
+.hero-sub,
+.form-section-title,
+.admin-header h2,
+.faq-q {
+  font-family: var(--font-display);
+}
+
+/* ── HERO TITLE — BIGGER, LIGHTER, MORE EDITORIAL ── */
+h1.hero-title {
+  font-size: clamp(3.2rem, 9.5vw, 6.4rem);
+  font-weight: 300;
+  letter-spacing: -.02em;
+  line-height: 1.04
+}
+
+h1.hero-title em {
+  font-weight: 400;
+  letter-spacing: .01em
+}
+
+/* ── SECTION TITLES — LARGER, MORE REFINED ── */
+.section-title {
+  font-size: clamp(2.1rem, 5.5vw, 3.8rem);
+  font-weight: 400;
+  letter-spacing: -.01em;
+  line-height: 1.12
+}
+
+/* ── HERO SUBTITLE — ITALIC EDITORIAL ── */
+.hero-sub {
+  font-size: 1.22rem;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: .025em;
+  color: var(--text-mid)
+}
+
+/* ── HERO GHOST TEXT ── */
+.hero-ghost-text {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: clamp(7rem, 24vw, 20rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(200, 115, 138, .048);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  user-select: none;
+  letter-spacing: -.04em;
+  line-height: 1;
+  z-index: 0;
+  animation: ghostDrift 20s ease-in-out infinite alternate
+}
+
+@keyframes ghostDrift {
+  from { transform: translate(-50%, -50%) scale(1) }
+  to   { transform: translate(-50%, -52%) scale(1.04) }
+}
+
+/* ── HERO CONTENT Z-INDEX (above ghost text) ── */
+.hero-content {
+  z-index: 2
+}
+
+/* ── HERO STAGGER ENTRANCE ANIMATION ── */
+.hero-content .hero-badge    { animation: heroIn .6s  .10s both ease-out }
+.hero-content .hero-logo-img { animation: heroIn .65s .24s both ease-out }
+.hero-content .hero-title    { animation: heroIn .7s  .40s both ease-out }
+.hero-content .hero-div      { animation: heroIn .6s  .52s both ease-out }
+.hero-content .hero-sub      { animation: heroIn .6s  .62s both ease-out }
+.hero-content .hero-text     { animation: heroIn .6s  .74s both ease-out }
+.hero-content .hero-btns     { animation: heroIn .65s .88s both ease-out }
+
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(20px) }
+  to   { opacity: 1; transform: translateY(0) }
+}
+
+/* ── BTN-PRIMARY SHIMMER EFFECT ── */
+.btn-primary {
+  position: relative;
+  overflow: hidden
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 38%,
+    rgba(255, 255, 255, .22) 50%,
+    transparent 62%
+  );
+  background-size: 200% 100%;
+  background-position: -100% 0;
+  animation: btnGloss 5s ease 2s infinite;
+  pointer-events: none
+}
+
+@keyframes btnGloss {
+  0%, 70%, 100% { background-position: -100% 0 }
+  35%           { background-position: 200% 0 }
+}
+
+/* ── NAV LOGO FONT REFINEMENT ── */
+.nav-logo {
+  font-size: 1.28rem;
+  letter-spacing: .03em
+}
+
+/* ── PRODUCT NAME ── */
+.prod-name {
+  font-size: 1.12rem;
+  font-weight: 500;
+  letter-spacing: .01em;
+  line-height: 1.28
+}
+
+/* ── PRODUCT PRICE ── */
+.prod-price {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  letter-spacing: .03em;
+  font-weight: 600
+}
+
+/* ── TESTIMONIAL TEXT — EDITORIAL ITALIC ── */
+.test-text {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.88;
+  letter-spacing: .01em;
+  padding-top: 1rem
+}
+
+.test-card::before {
+  font-family: var(--font-display);
+  font-size: 7.5rem;
+  font-weight: 300;
+  color: rgba(200, 115, 138, .12);
+  top: -.3rem;
+  left: .8rem;
+  line-height: 1
+}
+
+/* ── STEP TITLE & ABOUT CARD ── */
+.step-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: .03em
+}
+
+.about-card-title {
+  font-size: 1.02rem;
+  font-weight: 500;
+  letter-spacing: .02em
+}
+
+/* ── FOOTER BRAND ── */
+.foot-brand-name {
+  font-size: 1.65rem;
+  font-weight: 400;
+  letter-spacing: .04em
+}
+
+.foot-col h4 {
+  font-size: 1.08rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .16em
+}
+
+/* ── MOBILE MENU LINKS ── */
+.mobile-menu a {
+  font-size: 2rem;
+  letter-spacing: .06em
+}
+
+/* ── FAQ QUESTION ── */
+.faq-q {
+  font-size: .98rem;
+  font-weight: 500;
+  letter-spacing: .01em
+}
+
+/* ── SECTION LABEL LETTER-SPACING ── */
+.section-label {
+  letter-spacing: .22em
+}
+
+/* ── SECTION TITLE EM UNDERLINE STRONGER ── */
+.section-title em::after {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--rose) 30%, var(--rose-light) 70%, transparent);
+  opacity: .7;
+  bottom: 0
+}
+
+/* ── HERO DIVIDER ── */
+.hero-div {
+  gap: 1.1rem;
+  margin: 1.3rem 0
+}
+
+.hero-div::before,
+.hero-div::after {
+  max-width: 100px
+}
+
+/* ── CATALOG FILTER PILL REFINEMENT ── */
+.filter-btn {
+  letter-spacing: .1em;
+  font-size: .78rem
+}
+
+/* ── PRODUCT BADGE ── */
+.prod-badge {
+  font-size: .62rem;
+  letter-spacing: .1em;
+  font-weight: 600
+}
+
+/* ── PRODUCT CAT TAG ── */
+.prod-cat-tag {
+  font-size: .66rem;
+  font-weight: 600;
+  letter-spacing: .18em
+}
+
+/* ── ABOUT SECTION BG SYMBOL FONT ── */
+#about::before {
+  font-family: var(--font-display);
+  font-size: 24rem;
+  opacity: .025
+}
+
+/* ── INSTAGRAM HOVER ── */
+.insta-item:hover {
+  transform: translateY(-7px) scale(1.03)
+}
+
+/* ── SCROLLBAR REFINEMENT ── */
+::-webkit-scrollbar {
+  width: 4px
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream)
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--rose-light), var(--rose));
+  border-radius: 2px
+}
+
+/* ── REDUCED MOTION GUARD for new animations ── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-ghost-text,
+  .btn-primary::after,
+  .hero-content .hero-badge,
+  .hero-content .hero-logo-img,
+  .hero-content .hero-title,
+  .hero-content .hero-div,
+  .hero-content .hero-sub,
+  .hero-content .hero-text,
+  .hero-content .hero-btns {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   UI/UX PRO MAX — Accessibility, Touch Targets, Focus & Polish
+   Pattern: Scroll-Triggered Storytelling + Exaggerated Minimalism
+══════════════════════════════════════════════════════════════════ */
+
+/* ── FOCUS VISIBLE — keyboard accessible rings (WCAG 2.4.7) ── */
+:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 3px;
+  border-radius: 4px
+}
+
+/* Suppress focus ring for mouse — keep for keyboard only */
+:focus:not(:focus-visible) {
+  outline: none
+}
+
+/* ── TOUCH TARGETS — WCAG 2.5.5 minimum 44×44px ── */
+.btn-primary,
+.btn-outline,
+.nav-cta {
+  min-height: 44px
+}
+
+.filter-btn {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center
+}
+
+.prod-btn {
+  min-height: 44px;
+  padding: .9rem
+}
+
+/* Hamburger was ~22px tall — fix touch target (display:none preserved by base rule) */
+.hamburger {
+  padding: 10px 6px;
+  min-height: 44px;
+  min-width: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px
+}
+
+.faq-q {
+  min-height: 52px
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center
+}
+
+/* ── ABOUT CARD ICON — SVG color & hover ── */
+.about-card-icon {
+  color: var(--wine-dark)
+}
+
+.about-card:hover .about-card-icon {
+  color: var(--rose-deep);
+  transition: color .3s ease
+}
+
+/* ── STEP NUMBERS — editorial italic (Cormorant Garamond) ── */
+.step-num {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  font-style: italic;
+  color: #fff;
+  letter-spacing: -.02em;
+  line-height: 1
+}
+
+/* ── INSTA GRID — focus state shows overlay ── */
+.insta-item:focus-visible .insta-overlay {
+  opacity: 1
+}
+
+/* ── SECTION RHYTHM — generous whitespace (Exaggerated Minimalism) ── */
+@media (min-width: 900px) {
+  section {
+    padding: 6.5rem 1.5rem
+  }
+}
+
+/* ── REDUCED MOTION GUARD for UX additions ── */
+@media (prefers-reduced-motion: reduce) {
+  .step-item:hover .step-num {
+    transform: none !important;
+    box-shadow: none !important
   }
 }
