@@ -13,7 +13,7 @@
   --rose-deep: #9e4d65;
   --wine: #7a3048;
   --wine-dark: #52203a;
-  --cream: #fdf6f0;
+  --cream: #f9f2f5;
   --nude: #f2e6dd;
   --blush: #fce9f0;
   --blush-mid: #f9d5e5;
@@ -23,10 +23,10 @@
   --white: #fff;
   --shadow: rgba(122, 48, 72, .12);
   --shadow-deep: rgba(122, 48, 72, .22);
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Jost', system-ui, sans-serif;
-  --radius: 1.2rem;
-  --radius-sm: .75rem;
+  --radius: 0.85rem;
+  --radius-sm: .6rem;
 }
 
 html {
@@ -61,7 +61,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   backdrop-filter: blur(16px);
-  background: rgba(253, 246, 240, .92);
+  background: rgba(249, 242, 245, .92);
   border-bottom: 1px solid rgba(200, 115, 138, .15);
   transition: box-shadow .3s
 }
@@ -84,7 +84,16 @@ nav {
   height: 40px;
   object-fit: cover;
   border-radius: 50%;
+  border: 1.5px solid rgba(200, 115, 138, .38);
+  box-shadow: 0 2px 10px rgba(122, 48, 72, .12);
+  transition: border-color .3s ease, box-shadow .3s ease
 }
+
+.nav-logo:hover img {
+  border-color: rgba(200, 115, 138, .68);
+  box-shadow: 0 3px 14px rgba(122, 48, 72, .2)
+}
+
 .nav-links {
   display: flex;
   gap: 1.8rem
@@ -261,33 +270,18 @@ nav {
 }
 
 .hero-logo-img {
-  width: 120px;
-  height: 120px;
+  width: 128px;
+  height: 128px;
   border-radius: 50%;
   object-fit: cover;
-
   display: block;
   margin: 0 auto 1.5rem auto;
-
-  box-shadow: 0 8px 32px var(--shadow);
-  border: 3px solid rgba(200, 115, 138, .25);
+  border: 2px solid rgba(200, 115, 138, .48);
+  box-shadow:
+    0 0 0 10px rgba(200, 115, 138, .09),
+    0 12px 36px rgba(122, 48, 72, .22);
 }
 
-.hero-badge {
-  display: block;
-  width: fit-content;
-  margin: 0 auto 1.2rem auto;
-
-  background: rgba(200, 115, 138, .12);
-  color: var(--rose-deep);
-  font-size: .7rem;
-  font-weight: 500;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  padding: .35rem 1rem;
-  border-radius: 99px;
-  border: 1px solid rgba(200, 115, 138, .25);
-}
 
 h1.hero-title {
   font-family: var(--font-serif);
@@ -396,17 +390,25 @@ section {
 }
 
 .section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  color: var(--rose);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: .92rem;
+  font-weight: 400;
+  letter-spacing: .03em;
+  margin-bottom: .85rem;
+}
+
+.section-label::before {
+  content: '';
   display: inline-block;
-  background: rgba(200, 115, 138, .1);
-  color: var(--rose-deep);
-  font-size: .7rem;
-  font-weight: 500;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  padding: .32rem .9rem;
-  border-radius: 99px;
-  margin-bottom: 1rem;
-  border: 1px solid rgba(200, 115, 138, .2)
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose-light));
+  flex-shrink: 0;
 }
 
 .section-title {
@@ -458,8 +460,7 @@ section {
   background: #fff;
   padding: 1.2rem 1.4rem;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(200, 115, 138, .15);
-  box-shadow: 0 4px 16px var(--shadow);
+  border: 1px solid rgba(200, 115, 138, .2);
   display: flex;
   align-items: center;
   gap: .9rem;
@@ -468,7 +469,8 @@ section {
 
 .about-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 28px var(--shadow-deep)
+  border-color: rgba(158, 77, 101, .35);
+  box-shadow: 0 6px 20px var(--shadow)
 }
 
 .about-card-icon {
@@ -547,8 +549,7 @@ section {
   background: #fff;
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: 0 4px 18px var(--shadow);
-  border: 1px solid rgba(200, 115, 138, .1);
+  box-shadow: 0 2px 8px var(--shadow);
   transition: all .32s;
   position: relative;
   display: flex;
@@ -556,8 +557,8 @@ section {
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 14px 44px var(--shadow-deep)
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--shadow-deep)
 }
 
 .product-card[data-cat].hidden {
@@ -774,11 +775,11 @@ section {
 .steps-grid::before {
   content: '';
   position: absolute;
-  top: 28px;
+  top: calc(clamp(2.6rem, 5.5vw, 3.4rem) * 0.5);
   left: 10%;
   right: 10%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(200, 115, 138, .35) 20%, rgba(200, 115, 138, .35) 80%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(200, 115, 138, .2) 20%, rgba(200, 115, 138, .2) 80%, transparent);
   z-index: 0
 }
 
@@ -789,17 +790,19 @@ section {
 }
 
 .step-num {
-  width: 56px;
-  height: 56px;
-  background: linear-gradient(135deg, var(--rose), var(--wine));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem;
-  font-size: 1.3rem;
-  box-shadow: 0 4px 18px rgba(122, 48, 72, .3)
+  display: inline-block;
+  margin: 0 auto .5rem;
+  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(2.6rem, 5.5vw, 3.4rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--rose-light);
+  letter-spacing: -.03em;
+  line-height: 1;
+  padding-bottom: .3rem;
+  border-bottom: 1px solid rgba(200, 115, 138, .3)
 }
+
 
 .step-title {
   font-family: var(--font-serif);
@@ -833,12 +836,13 @@ section {
   border-radius: var(--radius-sm);
   border: 1px solid rgba(200, 115, 138, .15);
   overflow: hidden;
-  transition: border-color .25s, box-shadow .25s
+  transition: border-color .25s, background .25s
 }
 
 .faq-item.open {
   border-color: rgba(200, 115, 138, .35);
-  box-shadow: 0 6px 22px var(--shadow)
+  background: rgba(252, 233, 240, .18);
+  box-shadow: 0 4px 12px var(--shadow)
 }
 
 .faq-q {
@@ -926,15 +930,15 @@ section {
   background: #fff;
   padding: 1.8rem;
   border-radius: var(--radius);
-  border: 1px solid rgba(200, 115, 138, .12);
-  box-shadow: 0 4px 18px var(--shadow);
+  border: 1px solid rgba(200, 115, 138, .18);
   position: relative;
   transition: all .32s
 }
 
 .test-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 38px var(--shadow-deep)
+  transform: translateY(-3px);
+  border-color: rgba(158, 77, 101, .32);
+  box-shadow: 0 6px 22px var(--shadow)
 }
 
 .test-card::before {
@@ -953,7 +957,7 @@ section {
   color: var(--text-mid);
   font-style: italic;
   line-height: 1.75;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-serif);
   font-weight: 300;
   margin-bottom: 1.3rem;
   padding-top: .4rem
@@ -1218,7 +1222,7 @@ footer {
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity .65s ease, transform .65s ease
+  transition: opacity .65s cubic-bezier(0.25, 1, 0.5, 1), transform .65s cubic-bezier(0.25, 1, 0.5, 1)
 }
 
 .fade-in.visible {
@@ -1248,7 +1252,7 @@ footer {
   background: #fff;
   max-width: 960px;
   margin: 0 auto;
-  border-radius: 1.2rem;
+  border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, .35)
 }
@@ -1750,17 +1754,6 @@ footer {
    MELHORIAS VISUAIS
 ══════════════════════════════════════════════════ */
 
-/* ── GRAIN TEXTURE ── */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9998;
-  opacity: .038;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 300px 300px;
-}
 
 /* ── ANNOUNCEMENT BAR ── */
 .announcement-bar {
@@ -1835,19 +1828,18 @@ body::after {
 }
 
 .hero-logo-img {
-  box-shadow:
-    0 0 0 5px rgba(200, 115, 138, .14),
-    0 0 0 12px rgba(200, 115, 138, .06),
-    0 8px 32px var(--shadow);
-  transition: transform .5s ease, box-shadow .5s ease
+  transition:
+    transform .5s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow .5s cubic-bezier(0.25, 1, 0.5, 1),
+    border-color .4s ease
 }
 
 .hero-logo-img:hover {
-  transform: scale(1.05) rotate(2deg);
+  transform: scale(1.05);
+  border-color: rgba(200, 115, 138, .72);
   box-shadow:
-    0 0 0 8px rgba(200, 115, 138, .22),
-    0 0 0 16px rgba(200, 115, 138, .1),
-    0 16px 48px var(--shadow-deep)
+    0 0 0 14px rgba(200, 115, 138, .11),
+    0 16px 44px rgba(122, 48, 72, .28)
 }
 
 .hero-badge {
@@ -1879,11 +1871,6 @@ body::after {
 
 /* ── SEÇÕES — títulos ── */
 
-.section-label {
-  background: linear-gradient(135deg, rgba(200, 115, 138, .12), rgba(158, 77, 101, .07));
-  border-color: rgba(200, 115, 138, .22);
-  letter-spacing: .18em
-}
 
 .section-title em {
   position: relative;
@@ -1906,7 +1893,11 @@ body::after {
 
 #about {
   position: relative;
-  overflow: hidden
+  overflow: hidden;
+}
+
+.about-card {
+  background: #fff;
 }
 
 #about::before {
@@ -1929,9 +1920,6 @@ body::after {
   z-index: 1
 }
 
-.about-card {
-  background: linear-gradient(145deg, #fff, rgba(252, 233, 240, .35))
-}
 
 .about-card-icon {
   box-shadow: 0 4px 14px rgba(200, 115, 138, .2)
@@ -1940,7 +1928,7 @@ body::after {
 /* ── CATÁLOGO ── */
 
 .product-card {
-  background: linear-gradient(175deg, #fff 60%, rgba(252, 233, 240, .18))
+  background: #fff;
 }
 
 .prod-cat-tag {
@@ -1951,32 +1939,24 @@ body::after {
 /* ── COMO FUNCIONA ── */
 
 .step-num {
-  box-shadow:
-    0 6px 24px rgba(122, 48, 72, .32),
-    inset 0 1px 0 rgba(255, 255, 255, .18),
-    0 0 0 4px rgba(200, 115, 138, .1);
-  transition: transform .35s ease, box-shadow .35s ease
+  transition: color .3s ease
 }
 
 .step-item:hover .step-num {
-  transform: scale(1.1);
-  box-shadow:
-    0 10px 32px rgba(122, 48, 72, .4),
-    inset 0 1px 0 rgba(255, 255, 255, .22),
-    0 0 0 7px rgba(200, 115, 138, .15)
+  color: var(--rose)
 }
 
 /* ── FAQ ── */
 
 .faq-item.open {
-  border-left: 3px solid var(--rose-light);
-  box-shadow: 0 8px 28px var(--shadow)
+  border-color: rgba(200, 115, 138, .32);
+  background: rgba(252, 233, 240, .18);
 }
 
 /* ── DEPOIMENTOS ── */
 
 .test-card {
-  background: linear-gradient(150deg, #fff, rgba(252, 233, 240, .25))
+  background: #fff;
 }
 
 .test-card::before {
@@ -2068,11 +2048,6 @@ footer::before {
   box-shadow: 0 4px 28px rgba(122, 48, 72, .14) !important
 }
 
-/* ── SMALL FLOWERS BACKGROUND ── */
-body {
-  background-image: url("data:image/svg+xml,%3Csvg width='150' height='150' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(45,48)' fill='%23c8738a' opacity='.11'%3E%3Cellipse cx='0' cy='-10' rx='5' ry='9'/%3E%3Cellipse cx='0' cy='-10' rx='5' ry='9' transform='rotate(72)'/%3E%3Cellipse cx='0' cy='-10' rx='5' ry='9' transform='rotate(144)'/%3E%3Cellipse cx='0' cy='-10' rx='5' ry='9' transform='rotate(216)'/%3E%3Cellipse cx='0' cy='-10' rx='5' ry='9' transform='rotate(288)'/%3E%3Ccircle r='4' opacity='.7'/%3E%3C/g%3E%3Cg transform='translate(112,98)rotate(20)' fill='%23c8738a' opacity='.09'%3E%3Cellipse cx='0' cy='-7' rx='3.5' ry='6'/%3E%3Cellipse cx='0' cy='-7' rx='3.5' ry='6' transform='rotate(72)'/%3E%3Cellipse cx='0' cy='-7' rx='3.5' ry='6' transform='rotate(144)'/%3E%3Cellipse cx='0' cy='-7' rx='3.5' ry='6' transform='rotate(216)'/%3E%3Cellipse cx='0' cy='-7' rx='3.5' ry='6' transform='rotate(288)'/%3E%3Ccircle r='2.5' opacity='.7'/%3E%3C/g%3E%3Cg transform='translate(20,118)rotate(-15)' fill='%23c8738a' opacity='.08'%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5'/%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5' transform='rotate(72)'/%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5' transform='rotate(144)'/%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5' transform='rotate(216)'/%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5' transform='rotate(288)'/%3E%3Ccircle r='2' opacity='.7'/%3E%3C/g%3E%3Cg transform='translate(128,28)rotate(35)' fill='%23c8738a' opacity='.08'%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5'/%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5' transform='rotate(72)'/%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5' transform='rotate(144)'/%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5' transform='rotate(216)'/%3E%3Cellipse cx='0' cy='-5' rx='2.5' ry='4.5' transform='rotate(288)'/%3E%3Ccircle r='2' opacity='.7'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 150px 150px
-}
 
 /* Seções cream mostram o padrão botânico do fundo */
 #faq         { background: transparent }
@@ -2127,7 +2102,8 @@ h1.hero-title {
   font-size: clamp(3.2rem, 9.5vw, 6.4rem);
   font-weight: 300;
   letter-spacing: -.02em;
-  line-height: 1.04
+  line-height: 1.04;
+  text-wrap: balance
 }
 
 h1.hero-title em {
@@ -2140,7 +2116,8 @@ h1.hero-title em {
   font-size: clamp(2.1rem, 5.5vw, 3.8rem);
   font-weight: 400;
   letter-spacing: -.01em;
-  line-height: 1.12
+  line-height: 1.12;
+  text-wrap: balance
 }
 
 /* ── HERO SUBTITLE — ITALIC EDITORIAL ── */
@@ -2184,16 +2161,15 @@ h1.hero-title em {
 }
 
 /* ── HERO STAGGER ENTRANCE ANIMATION ── */
-.hero-content .hero-badge    { animation: heroIn .6s  .10s both ease-out }
-.hero-content .hero-logo-img { animation: heroIn .65s .24s both ease-out }
-.hero-content .hero-title    { animation: heroIn .7s  .40s both ease-out }
-.hero-content .hero-div      { animation: heroIn .6s  .52s both ease-out }
-.hero-content .hero-sub      { animation: heroIn .6s  .62s both ease-out }
-.hero-content .hero-text     { animation: heroIn .6s  .74s both ease-out }
-.hero-content .hero-btns     { animation: heroIn .65s .88s both ease-out }
+.hero-content .hero-logo-img { animation: heroIn .65s cubic-bezier(0.16, 1, 0.3, 1) .18s both }
+.hero-content .hero-title    { animation: heroIn .75s cubic-bezier(0.16, 1, 0.3, 1) .34s both }
+.hero-content .hero-div      { animation: heroIn .6s  cubic-bezier(0.16, 1, 0.3, 1) .48s both }
+.hero-content .hero-sub      { animation: heroIn .6s  cubic-bezier(0.16, 1, 0.3, 1) .56s both }
+.hero-content .hero-text     { animation: heroIn .6s  cubic-bezier(0.16, 1, 0.3, 1) .66s both }
+.hero-content .hero-btns     { animation: heroIn .65s cubic-bezier(0.16, 1, 0.3, 1) .78s both }
 
 @keyframes heroIn {
-  from { opacity: 0; transform: translateY(20px) }
+  from { opacity: 0; transform: translateY(18px) }
   to   { opacity: 1; transform: translateY(0) }
 }
 
@@ -2307,10 +2283,6 @@ h1.hero-title em {
   letter-spacing: .01em
 }
 
-/* ── SECTION LABEL LETTER-SPACING ── */
-.section-label {
-  letter-spacing: .22em
-}
 
 /* ── SECTION TITLE EM UNDERLINE STRONGER ── */
 .section-title em::after {
@@ -2459,15 +2431,9 @@ h1.hero-title em {
   transition: color .3s ease
 }
 
-/* ── STEP NUMBERS — editorial italic (Cormorant Garamond) ── */
-.step-num {
+/* ── STEP TITLES — Cormorant Garamond ── */
+.step-title {
   font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 600;
-  font-style: italic;
-  color: #fff;
-  letter-spacing: -.02em;
-  line-height: 1
 }
 
 /* ── INSTA GRID — focus state shows overlay ── */
@@ -2482,10 +2448,61 @@ h1.hero-title em {
   }
 }
 
-/* ── REDUCED MOTION GUARD for UX additions ── */
+/* ── BUTTON PRESS FEEDBACK ── */
+.btn-primary:active {
+  transform: translateY(1px) scale(0.97);
+  box-shadow: 0 4px 14px rgba(122, 48, 72, .22);
+  transition-duration: 80ms
+}
+
+.btn-outline:active {
+  transform: translateY(1px) scale(0.97);
+  transition-duration: 80ms
+}
+
+.prod-btn:active {
+  transform: scale(0.97);
+  transition-duration: 80ms
+}
+
+/* ── WHATSAPP FLOAT ENTRANCE ── */
+.wa-float {
+  animation: waEnter .5s cubic-bezier(0.16, 1, 0.3, 1) 1.4s both
+}
+
+@keyframes waEnter {
+  from { opacity: 0; transform: translateY(14px) scale(0.82) }
+  to   { opacity: 1; transform: translateY(0) scale(1) }
+}
+
+/* ── INSTA IMAGE SCALE SMOOTHNESS ── */
+.insta-item img {
+  transition: transform .55s cubic-bezier(0.25, 1, 0.5, 1)
+}
+
+/* ── REDUCED MOTION — global guard ── */
 @media (prefers-reduced-motion: reduce) {
-  .step-item:hover .step-num {
-    transform: none !important;
-    box-shadow: none !important
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important
+  }
+
+  .fade-in {
+    opacity: 1;
+    transform: none
+  }
+
+  .hero-content .hero-logo-img,
+  .hero-content .hero-title,
+  .hero-content .hero-div,
+  .hero-content .hero-sub,
+  .hero-content .hero-text,
+  .hero-content .hero-btns,
+  .wa-float {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important
   }
 }
