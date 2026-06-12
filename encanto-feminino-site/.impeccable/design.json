@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-12T00:00:00Z",
+  "title": "Design System: Encanto Feminino",
+  "extensions": {
+    "colorMeta": {
+      "rose":       { "role": "primary",  "displayName": "Rose Encanto",   "canonical": "oklch(57% 0.11 355)", "tonalRamp": ["#2a0e18","#4a1a2c","#6a2a42","#8a3a58","#aa506e","#c8738a","#dca0b0","#f2d5de","#faeef2"] },
+      "wine":       { "role": "primary",  "displayName": "Wine",           "canonical": "oklch(33% 0.10 10)",  "tonalRamp": ["#1a0810","#2e1020","#451830","#5e2240","#7a3048","#955a6a","#b58090","#d4aab2","#f0d4d8"] },
+      "wine-dark":  { "role": "primary",  "displayName": "Wine Dark",      "canonical": "oklch(22% 0.09 10)",  "tonalRamp": ["#100508","#1e0c14","#2e1420","#42182e","#52203a","#724055","#9a6575","#c0909a","#e4c8cc"] },
+      "surface":    { "role": "neutral",  "displayName": "Rose Surface",   "canonical": "oklch(96% 0.008 355)", "tonalRamp": ["#3d1e2c","#5a3042","#7a4f5c","#9a6e7a","#bc9098","#d8b6bc","#ecd5d9","#f5e8ea","#f9f2f5"] },
+      "ink":        { "role": "neutral",  "displayName": "Deep Ink",       "canonical": "oklch(18% 0.06 10)",  "tonalRamp": ["#1a0812","#3d1e2c","#5a3040","#7a4f5c","#9a6e7a","#b89098","#d4b8bc","#e8d5d8","#f8f0f2"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Editorial Display", "purpose": "Hero title only. Cormorant Garamond 300 italic at maximum scale." },
+      "headline": { "displayName": "Section Headline",  "purpose": "Section titles (h2). Cormorant Garamond 400 with italic <em> on last word-group." },
+      "title":    { "displayName": "Card Title",        "purpose": "Product names, step titles, about-card titles. Cormorant Garamond 500." },
+      "body":     { "displayName": "Body Copy",         "purpose": "Paragraphs, product descriptions. Jost 400, line-height 1.8, max 65ch." },
+      "label":    { "displayName": "UI Label",          "purpose": "Categories, badges, filter pills. Jost 500-600 uppercase." }
+    },
+    "shadows": [
+      { "name": "ambient-low",  "value": "0 2px 8px rgba(122, 48, 72, 0.12)",  "purpose": "Product cards at rest." },
+      { "name": "ambient-mid",  "value": "0 6px 20px rgba(122, 48, 72, 0.18)", "purpose": "About-cards and FAQ on hover." },
+      { "name": "ambient-high", "value": "0 8px 24px rgba(122, 48, 72, 0.22)", "purpose": "Product cards on hover." },
+      { "name": "cta-glow",     "value": "0 8px 24px rgba(122, 48, 72, 0.28)", "purpose": "Primary button at rest." }
+    ],
+    "motion": [
+      { "name": "ease-standard",  "value": "ease",                              "purpose": "Default state transitions." },
+      { "name": "ease-out-soft",  "value": "cubic-bezier(0.4, 0, 0.2, 1)",     "purpose": "Product slider, card hover lift." },
+      { "name": "ease-spring",    "value": "cubic-bezier(0.34, 1.56, 0.64, 1)","purpose": "Instagram grid hover (restrained bounce)." },
+      { "name": "hero-stagger",   "value": "opacity 0 → 1 + translateY 20px → 0, 0.6–0.7s, sequential delay 0.1s per element", "purpose": "Hero entrance on page load." }
+    ],
+    "breakpoints": [
+      { "name": "mobile",  "value": "600px"  },
+      { "name": "tablet",  "value": "900px"  },
+      { "name": "desktop", "value": "1080px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA. Pill, gradient rose→wine, shimmer on idle.",
+      "html": "<a href=\"#\" class=\"ds-btn-primary\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z\"/></svg> Pedir pelo WhatsApp</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.45rem; background: linear-gradient(135deg, #c8738a, #7a3048); color: #fff; padding: 0.85rem 1.8rem; border-radius: 99px; text-decoration: none; font-family: 'Jost', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; min-height: 44px; position: relative; overflow: hidden; box-shadow: 0 8px 24px rgba(122,48,72,0.28); transition: transform 0.3s, box-shadow 0.3s; } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(122,48,72,0.38); } .ds-btn-primary:focus-visible { outline: 2px solid #c8738a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary CTA. Pill outline, inverts on hover.",
+      "html": "<a href=\"#\" class=\"ds-btn-outline\">Ver Instagram</a>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 0.45rem; border: 1.5px solid #9e4d65; color: #9e4d65; padding: 0.85rem 1.8rem; border-radius: 99px; text-decoration: none; font-family: 'Jost', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; min-height: 44px; background: rgba(255,255,255,0.6); transition: all 0.3s; } .ds-btn-outline:hover { background: #c8738a; color: #fff; border-color: #c8738a; transform: translateY(-2px); } .ds-btn-outline:focus-visible { outline: 2px solid #c8738a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Section Label",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Editorial section kicker. Italic serif with thin rule — not a pill badge.",
+      "html": "<div class=\"ds-section-label\">Nossa História</div>",
+      "css": ".ds-section-label { display: inline-flex; align-items: center; gap: 0.55rem; color: #c8738a; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 0.92rem; font-weight: 400; letter-spacing: 0.03em; margin-bottom: 0.85rem; } .ds-section-label::before { content: ''; display: inline-block; width: 28px; height: 1px; background: linear-gradient(90deg, transparent, #e8a0b0); flex-shrink: 0; }"
+    },
+    {
+      "name": "Product Card",
+      "kind": "card",
+      "refersTo": "product-card",
+      "description": "Catalog grid item. Image 4:5 aspect ratio, clean shadow only (no border).",
+      "html": "<div class=\"ds-product-card\"><div class=\"ds-prod-img-wrap\"><div style=\"width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(135deg,#f9d5e5,#f5dde4)\">🌸</div><span class=\"ds-prod-badge ds-badge-encomenda\">⏱ Sob encomenda</span></div><div class=\"ds-prod-info\"><div class=\"ds-prod-cat\">Lingerie</div><h3 class=\"ds-prod-name\">Camisola de Renda</h3><p class=\"ds-prod-desc\">Camisola elegante com detalhes em renda delicada.</p><div class=\"ds-prod-price\">R$ 60,00 <span>/ peça</span></div><a href=\"#\" class=\"ds-prod-btn\">Solicitar pelo WhatsApp</a></div></div>",
+      "css": ".ds-product-card { background: #fff; border-radius: 0.85rem; overflow: hidden; box-shadow: 0 2px 8px rgba(122,48,72,0.12); transition: all 0.32s; display: flex; flex-direction: column; } .ds-product-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(122,48,72,0.22); } .ds-prod-img-wrap { position: relative; aspect-ratio: 4/5; overflow: hidden; background: #f2e6dd; } .ds-prod-badge { position: absolute; top: 0.75rem; left: 0.75rem; font-family: 'Jost',sans-serif; font-size: 0.62rem; font-weight: 600; padding: 0.28rem 0.7rem; border-radius: 99px; letter-spacing: 0.1em; text-transform: uppercase; } .ds-badge-encomenda { background: rgba(253,246,240,0.95); color: #7a3048; border: 1px solid rgba(200,115,138,0.25); } .ds-prod-info { padding: 1.1rem 1.2rem 1.2rem; flex: 1; display: flex; flex-direction: column; } .ds-prod-cat { font-family: 'Jost',sans-serif; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #c8738a; margin-bottom: 0.3rem; } .ds-prod-name { font-family: 'Cormorant Garamond',Georgia,serif; font-size: 1.12rem; font-weight: 500; color: #52203a; letter-spacing: 0.01em; line-height: 1.28; margin-bottom: 0.35rem; } .ds-prod-desc { font-family: 'Jost',sans-serif; font-size: 0.8rem; color: #8a5f6d; line-height: 1.55; margin-bottom: 0.7rem; flex: 1; } .ds-prod-price { font-family: 'Cormorant Garamond',Georgia,serif; font-size: 1.45rem; color: #7a3048; font-weight: 600; letter-spacing: 0.03em; margin-bottom: 0.6rem; } .ds-prod-price span { font-family: 'Jost',sans-serif; font-size: 0.78rem; font-weight: 400; color: #8a5f6d; } .ds-prod-btn { display: flex; align-items: center; justify-content: center; gap: 0.45rem; width: 100%; padding: 0.9rem; background: rgba(200,115,138,0.08); color: #9e4d65; border: 1.5px solid rgba(200,115,138,0.2); border-radius: 0.6rem; font-family: 'Jost',sans-serif; font-size: 0.8rem; font-weight: 500; text-decoration: none; transition: all 0.22s; min-height: 44px; } .ds-prod-btn:hover { background: #7a3048; color: #fff; border-color: #7a3048; }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "filter-chip",
+      "description": "Catalog filter pills. Inactive: white outline. Active: wine-dark solid.",
+      "html": "<div style=\"display:flex;gap:0.45rem\"><button class=\"ds-filter-chip ds-filter-active\">Todos</button><button class=\"ds-filter-chip\">Pijamas</button><button class=\"ds-filter-chip\">Lingeries</button></div>",
+      "css": ".ds-filter-chip { padding: 0.48rem 1.2rem; border-radius: 99px; font-family: 'Jost',sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; cursor: pointer; transition: all 0.22s; background: #fff; color: #7a4f5c; border: 1.5px solid rgba(200,115,138,0.25); min-height: 44px; display: inline-flex; align-items: center; justify-content: center; } .ds-filter-chip:hover { border-color: #9e4d65; color: #9e4d65; } .ds-filter-active { background: #52203a; color: #fff; border-color: #52203a; } .ds-filter-chip:focus-visible { outline: 2px solid #c8738a; outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "O Ateliê Íntimo",
+    "overview": "O sistema visual da Encanto Feminino é construído como um ateliê de moda de luxo acessível: íntimo, artesanal, atemporal. A tipografia editorial em Cormorant Garamond carrega o peso da marca, enquanto o Jost funciona como o balcão neutro onde os detalhes práticos residem. O espaço em branco não é ausência — é o equivalente visual de tecido de qualidade, do peso de um produto bem feito. A cor não decora, ela identifica.",
+    "keyCharacteristics": [
+      "Tipografia display em escala editorial com letter-spacing no limite seguro",
+      "Paleta comprometida: wine-dark como âncora, rose como sotaque emocional",
+      "Surface rose-tinted — nunca creme AI de 2026",
+      "Elevation por contraste de borda, não sombras decorativas largas",
+      "Section labels em italic serif com linha fina — editorial, não pill",
+      "Ghost-card pattern (borda + sombra larga) é proibido"
+    ],
+    "rules": [
+      { "name": "The Committed Palette Rule", "body": "Rose e wine são cores de identidade. Nunca substituir por cinza neutro.", "section": "colors" },
+      { "name": "The Surface Rule", "body": "Body background nunca é creme quente. Tinte em direção ao hue da marca.", "section": "colors" },
+      { "name": "The Italic Emphasis Rule", "body": "Em section titles, o último word-group deve estar em <em> itálico.", "section": "typography" },
+      { "name": "The Letter-Spacing Floor Rule", "body": "Display letter-spacing nunca abaixo de -0.04em.", "section": "typography" },
+      { "name": "The Ghost-Card Ban", "body": "Nunca combinar border + box-shadow blur ≥ 16px no mesmo elemento.", "section": "elevation" },
+      { "name": "The Flat-at-Rest Rule", "body": "About-cards e testimonials são planos ao repouso. Shadow apenas em hover.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do usar Cormorant Garamond italic em títulos com <em> no último word-group",
+      "Do manter letter-spacing de display entre -0.01em e -0.02em",
+      "Do usar text-wrap: balance em h1-h3",
+      "Do escolher entre borda OU sombra em cards, nunca os dois como decoração",
+      "Do manter body background em #f9f2f5 (rose-tinted)"
+    ],
+    "donts": [
+      "Don't usar border-left > 1px como sotaque colorido em cards ou FAQ",
+      "Don't usar feTurbulence / feDisplacementMap como textura de papel",
+      "Don't fazer border + box-shadow blur ≥ 16px no mesmo elemento",
+      "Don't usar border-radius > 16px em cards",
+      "Don't repetir pill eyebrow uppercase em toda seção",
+      "Don't usar fundo creme/areia quente como cor de body",
+      "Don't parecer Shopee, Mercado Livre, Riachuelo ou SaaS clínico"
+    ]
+  }
+}
