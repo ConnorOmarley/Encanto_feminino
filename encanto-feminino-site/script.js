@@ -1,5 +1,18 @@
 
     // ──────────────────────────────────────────────────
+    // UTILS
+    // ──────────────────────────────────────────────────
+    function escapeHtml(str) {
+      if (str == null) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    // ──────────────────────────────────────────────────
     // DATA — Products with real prices from WhatsApp
     // ──────────────────────────────────────────────────
     const WA = '5581997932468';
@@ -58,32 +71,37 @@
         return;
       }
       grid.innerHTML = visible.map(p => {
-        const sizesHtml = p.sizes && p.sizes.length ? `<div class="meta-chip">📏 ${p.sizes.join(' · ')}</div>` : '';
-        const colorsHtml = p.colors && p.colors.length ? `<div class="meta-chip">🎨 ${p.colors.join(', ')}</div>` : '';
+        const safeName = escapeHtml(p.name);
+        const safeDesc = escapeHtml(p.desc || '');
+        const safeCat  = escapeHtml(p.cat);
+        const safeUnit = escapeHtml(p.unit);
+        const safeImg  = escapeHtml(p.img || '');
+        const sizesHtml = p.sizes && p.sizes.length ? `<div class="meta-chip">📏 ${p.sizes.map(escapeHtml).join(' · ')}</div>` : '';
+        const colorsHtml = p.colors && p.colors.length ? `<div class="meta-chip">🎨 ${p.colors.map(escapeHtml).join(', ')}</div>` : '';
         const badgeClass = p.avail === 'disponivel' ? 'badge-disponivel' : 'badge-encomenda';
         const badgeText = p.avail === 'disponivel' ? '✓ Disponível' : '⏱ Sob encomenda';
-        const priceLabel = `R$ ${Number(p.price).toFixed(2).replace('.', ',')} <span>/ ${p.unit}</span>`;
+        const priceLabel = `R$ ${Number(p.price).toFixed(2).replace('.', ',')} <span>/ ${safeUnit}</span>`;
         const imgs = Array.isArray(p.images) && p.images.length > 1 ? p.images : null;
-        const imgStyle = p.img ? `src="${p.img}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"` : `src="" style="display:none"`;
+        const imgStyle = p.img ? `src="${safeImg}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"` : `src="" style="display:none"`;
         const fallback = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(135deg,var(--blush-mid),var(--rose-pale));${p.img ? 'display:none' : ''}">
       ${p.cat === 'sabonete' ? '🧼' : p.cat === 'pijama' ? '🌙' : '🌸'}
     </div>`;
         const imgAreaHtml = imgs
           ? `<div class="prod-slider" data-slides="${imgs.length}">
-              <div class="prod-slides">${imgs.map(s => `<img src="${s}" alt="${p.name}" loading="lazy" class="slide-img" onerror="this.style.opacity='0'">`).join('')}</div>
+              <div class="prod-slides">${imgs.map(s => `<img src="${escapeHtml(s)}" alt="${safeName}" loading="lazy" class="slide-img" onerror="this.style.opacity='0'">`).join('')}</div>
               <div class="prod-dots">${imgs.map((_, i) => `<button class="dot${i === 0 ? ' active' : ''}" aria-label="Foto ${i + 1}"></button>`).join('')}</div>
             </div>`
-          : `<img ${imgStyle} alt="${p.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover">${fallback}`;
+          : `<img ${imgStyle} alt="${safeName}" loading="lazy" style="width:100%;height:100%;object-fit:cover">${fallback}`;
         return `
-    <div class="product-card fade-in" data-cat="${p.cat}">
+    <div class="product-card fade-in" data-cat="${safeCat}">
       <div class="prod-img-wrap">
         ${imgAreaHtml}
         <span class="prod-badge ${badgeClass}">${badgeText}</span>
       </div>
       <div class="prod-info">
-        <div class="prod-cat-tag">${catLabels[p.cat] || p.cat}</div>
-        <h3 class="prod-name">${p.name}</h3>
-        <p class="prod-desc">${p.desc || ''}</p>
+        <div class="prod-cat-tag">${escapeHtml(catLabels[p.cat] || p.cat)}</div>
+        <h3 class="prod-name">${safeName}</h3>
+        <p class="prod-desc">${safeDesc}</p>
         <div class="prod-price">${priceLabel}</div>
         <div class="prod-meta">
           ${sizesHtml}${colorsHtml}
@@ -174,16 +192,16 @@
       list.innerHTML = products.map(p => `
     <div class="prod-admin-row">
       <div class="prod-admin-img" style="background:linear-gradient(135deg,var(--blush-mid),var(--rose-pale));display:flex;align-items:center;justify-content:center;font-size:1.3rem">
-        ${p.img ? `<img src="${p.img}" style="width:100%;height:100%;object-fit:cover;border-radius:.5rem" onerror="this.style.display='none'">` : (p.cat === 'sabonete' ? '🧼' : p.cat === 'pijama' ? '🌙' : '🌸')}
+        ${p.img ? `<img src="${escapeHtml(p.img)}" style="width:100%;height:100%;object-fit:cover;border-radius:.5rem" onerror="this.style.display='none'">` : (p.cat === 'sabonete' ? '🧼' : p.cat === 'pijama' ? '🌙' : '🌸')}
       </div>
       <div class="prod-admin-info">
-        <div class="prod-admin-name">${p.visible ? '' : '👁‍🗨 '} ${p.name}</div>
-        <div class="prod-admin-cat">${catLabels[p.cat] || p.cat} · ${p.avail === 'disponivel' ? 'Disponível' : 'Sob encomenda'}</div>
+        <div class="prod-admin-name">${p.visible ? '' : '👁‍🗨 '} ${escapeHtml(p.name)}</div>
+        <div class="prod-admin-cat">${escapeHtml(catLabels[p.cat] || p.cat)} · ${p.avail === 'disponivel' ? 'Disponível' : 'Sob encomenda'}</div>
       </div>
-      <div class="prod-admin-price">R$ ${Number(p.price).toFixed(2).replace('.', ',')} / ${p.unit}</div>
+      <div class="prod-admin-price">R$ ${Number(p.price).toFixed(2).replace('.', ',')} / ${escapeHtml(p.unit)}</div>
       <div class="prod-admin-actions">
-        <button class="btn-edit" onclick="editProduct(${p.id})">✏️ Editar</button>
-        <button class="btn-del" onclick="deleteProduct(${p.id})">🗑 Excluir</button>
+        <button class="btn-edit" onclick="editProduct(${Number(p.id)})">✏️ Editar</button>
+        <button class="btn-del" onclick="deleteProduct(${Number(p.id)})">🗑 Excluir</button>
       </div>
     </div>
   `).join('');
@@ -287,10 +305,11 @@
     function renderChips(type) {
       const wrap = document.getElementById(type === 'size' ? 'sizesWrap' : 'colorsWrap');
       const inputId = type === 'size' ? 'sizeInput' : 'colorInput';
+      const safeType = escapeHtml(type);
       const chips = editingChips[type].map(v =>
-        `<span class="chip-tag">${v}<span class="remove" onclick="removeChip('${type}','${v}')">×</span></span>`
+        `<span class="chip-tag">${escapeHtml(v)}<span class="remove" data-type="${safeType}" data-val="${escapeHtml(v)}" onclick="removeChip(this.dataset.type,this.dataset.val)">×</span></span>`
       ).join('');
-      wrap.innerHTML = chips + `<input class="chip-input" id="${inputId}" placeholder="Digite e pressione Enter" onkeydown="addChip(event,'${type}')">`;
+      wrap.innerHTML = chips + `<input class="chip-input" id="${inputId}" placeholder="Digite e pressione Enter" data-type="${safeType}" onkeydown="addChip(event,this.dataset.type)">`;
     }
 
     function previewImg(url) {
