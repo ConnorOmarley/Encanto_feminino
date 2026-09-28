@@ -1,4 +1,10 @@
-# Encanto Feminino — landing page de catálogo (v1)
+# 💎 Encanto Feminino — landing page de catálogo (v1)
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Zero build](https://img.shields.io/badge/zero_build-zero_dep-00C853?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 
 Landing page de conversão para uma marca artesanal de lingeries, pijamas e sabonetes sob encomenda. **Zero dependências, zero build:** HTML, CSS e JavaScript puros. O site existe para uma única razão — transformar visitantes em conversas de WhatsApp.
 
@@ -64,7 +70,7 @@ O painel administrativo existe no HTML e no JS, mas está **comentado de propós
 // IMPLEMENTAÇÃO FUTURA: PAINEL ADMIN
 ```
 
-O motivo está no próprio código: `localStorage` não sincroniza entre dispositivos, então um painel baseado nele daria a impressão de uma gestão que não existe. A solução correta era um backend com persistência real — que é exatamente o que foi construído na [v2 deste projeto](https://github.com/ConnorOmarley/boutique-chat-chic) (React + TanStack Start + Supabase com RLS).
+O motivo está no próprio código: `localStorage` não sincroniza entre dispositivos, então um painel baseado nele daria a impressão de uma gestão que não existe. A solução correta era um backend com persistência real — que é exatamente o que foi construído na [v2 deste projeto](https://github.com/ConnorOmarley/encanto-feminino-catalogo) (React + TanStack Start + Supabase com RLS).
 
 Outros pontos conhecidos: o passo a passo "Como funciona" usa um grid de números `01–05` em vez de ícones, e o catálogo é estático (12 itens em `script.js`, sem paginação).
 
